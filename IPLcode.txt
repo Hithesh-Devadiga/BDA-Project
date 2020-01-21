@@ -1,0 +1,23 @@
+import pandas as pd
+from matplotlib import pyplot as plt
+
+data=pd.read_csv('deliveries.csv')
+type(data)
+
+%matplotlib inline
+data.head(30).plot(x='ball',y='total_runs')
+
+data[data['over']==1]
+
+over=data[(data['match_id']==1)]['over']
+run=data[(data['match_id']==1)&(data['over']==1)]['total_runs'].sum()
+
+(data['over'].value_counts()/6).plot(kind='bar')
+
+match=pd.read_csv('matches.csv')
+
+match.head(30)
+
+match['player_of_match'].value_counts()
+
+match['player_of_match'].value_counts().head(15).plot(kind='pie',figsize=(8,8))
